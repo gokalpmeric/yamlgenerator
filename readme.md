@@ -4,9 +4,11 @@ This is a simple web-based Kubernetes Deployment YAML generator. You can use thi
 
 ## Features
 
-- User-friendly GUI to input Deployment configurations
-- Generates a formatted Kubernetes Deployment YAML
-- Validates all input fields to ensure they are not empty
+- User-friendly GUI to input Deployment configurations.
+- Generates a formatted Kubernetes Deployment YAML.
+- Validates all input fields to ensure they are not empty.
+- Dockerfile provided for containerizing the application.
+- Kubernetes manifests for deploying the application to a cluster.
 
 ## Fields
 
@@ -30,8 +32,18 @@ This is a simple web-based Kubernetes Deployment YAML generator. You can use thi
 4. Open a web browser and go to `http://localhost:5000`.
 5. Fill out the fields in the GUI and click "Generate" to generate the Deployment YAML.
 
+## Running with Docker
+
+1. Build the Docker image: `docker build -t my-flask-app .`
+2. Run the Docker container: `docker run -p 4000:5000 my-flask-app`
+
+## Deploying to Kubernetes
+
+1. Replace `<image-name>:<tag>` in `deployment.yaml` with the name and tag of your Docker image.
+2. Apply the Deployment: `kubectl apply -f deployment.yaml`
+3. Apply the Service: `kubectl apply -f service.yaml`
+
 ## Note
 
 This application is intended for simple use cases and does not support all possible Kubernetes configurations. Always check the generated YAML to ensure it meets your needs before applying it to a Kubernetes cluster.
-
 
