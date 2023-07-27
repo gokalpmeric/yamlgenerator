@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yaml Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .page-title {
+            text-align: center;
+            padding: 20px;
+        }
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            border-radius: 20px; /* Rounded button */
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var inputs = document.getElementsByTagName('input');
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].value == '') {
+                    alert('Please fill all the fields.');
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Yaml Generator</h1>
+        <form method="POST" onsubmit="return validateForm()">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" placeholder="my-app"><br>
+            <label for="image">Image:</label><br>
+            <input type="text" id="image" name="image" placeholder="my-app:latest"><br>
+            <label for="requests_cpu">Requests CPU:</label><br>
+            <input type="text" id="requests_cpu" name="requests_cpu" placeholder="100m"><br>
+            <label for="requests_memory">Requests Memory:</label><br>
+            <input type="text" id="requests_memory" name="requests_memory" placeholder="200Mi"><br>
+            <label for="limits_cpu">Limits CPU:</label><br>
+            <input type="text" id="limits_cpu" name="limits_cpu" placeholder="200m"><br>
+            <label for="limits_memory">Limits Memory:</label><br>
+            <input type="text" id="limits_memory" name="limits_memory" placeholder="500Mi"><br>
+            <label for="ports">Ports:</label><br>
+            <input type="text" id="ports" name="ports" placeholder="80,443"><br>
+            <label for="label_key">Label Key:</label><br>
+            <input type="text" id="label_key" name="label_key" placeholder="app"><br>
+            <label for="label_value">Label Value:</label><br>
+            <input type="text" id="label_value" name="label_value" placeholder="my-app"><br>
+            <label for="env_key">Environment Variable Key:</label><br>
+            <input type="text" id="env_key" name="env_key" placeholder="ENV_VAR"><br>
+            <label for="env_value">Environment Variable Value:</label><br>
+            <input type="text" id="env_value" name="env_value" placeholder="value"><br>
+            <div style="text-align:center;">
+                <input type="submit" value="Generate">
+            </div>
+        </form>
+        {% if yaml_data %}
+        <pre>{{ yaml_data }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>
