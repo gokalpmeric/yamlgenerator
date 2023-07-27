@@ -26,7 +26,7 @@ This is a simple web-based Kubernetes Deployment YAML generator. You can use thi
 
 1. Clone the repository and navigate to the project directory.
 2. Install Flask if you haven't already: `pip install flask`
-3. Run the application: `python yamlgenerator.py`
+3. Run the application: `python main.py`
 4. Open a web browser and go to `http://localhost:5000`.
 5. Fill out the fields in the GUI and click "Generate" to generate the Deployment YAML.
 
