@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: <image-name>:<tag>  # replace with your Docker image name and tag
+        image: gokalpmeric/yamlgenerator:0.0.1
         ports:
         - containerPort: 5000
         resources:
