@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-app-deployment
+  name: yamlgenerator
   labels:
-    app: flask-app
+    app: yaml-generator
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-app
+      app: yaml-generator
   template:
     metadata:
       labels:
-        app: flask-app
+        app: yaml-generator
     spec:
       containers:
-      - name: flask-app
+      - name: yaml-generator
         image: gokalpmeric/yamlgenerator:0.0.1
         ports:
         - containerPort: 5000
