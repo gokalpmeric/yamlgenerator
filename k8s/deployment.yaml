@@ -5,7 +5,7 @@ metadata:
   labels:
     app: yaml-generator
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: yaml-generator
